@@ -1,4 +1,5 @@
 body {
+  
   background-color: white;
   color: red;
 }
@@ -7,12 +8,11 @@ body {
   color: white;
   border: none;
   height: 36px;
-  width:105px;
+  width:205px;
   border-radius: 2px;
   cursor: pointer;
   margin-right: 8px;
   transition: background-color 1s;
-}
 
 .subscribe-button:hover {
   opacity: 0.6;
