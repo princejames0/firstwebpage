@@ -1,5 +1,4 @@
 body {
-  
   background-color: white;
   color: red;
 }
@@ -8,16 +7,15 @@ body {
   color: white;
   border: none;
   height: 36px;
-  width:205px;
+  width:95px;
   border-radius: 2px;
   cursor: pointer;
   margin-right: 8px;
   transition: background-color 1s;
-
+}
 .subscribe-button:hover {
   opacity: 0.6;
 }
-
 .subscribe-button:active {
   opacity: 0.5;
 }
@@ -32,11 +30,9 @@ body {
   width: 62px;
   border-radius: 2px;
   cursor: pointer;
-  margin-right: 8px;
-   
+  margin-right: 8px; 
   transition: background-color 1s, 
    color 1s;
-
 }
 
 .join-button:hover {
