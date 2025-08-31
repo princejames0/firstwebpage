@@ -1,14 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="main.css">
-  <title>Youtube</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>My Shop</title>
+  <meta name="description" content="Affordable quality products from My Shop."/>
+  <link rel="icon" href="img/shopping mall logo.jpg" type="Image/shopping"/>
+  <style>
+    :root{
+      --bg:#0b0f19; /* deep navy */
+      --card:#121829;
+      --muted:#8b9bb4;
+      --text:#e6e9f2;
+      --accent:#4f8cff;
+      --accent-2:#22c55e;
+      --danger:#ef4444;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text); background:linear-gradient(180deg, #0b0f19 0%, #121829 100%);
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:0 16px}
+    header{position:sticky; top:0; backdrop-filter:saturate(140%) blur(10px); background:rgba(11,15,25,.6); border-bottom:1px solid rgba(255,255,255,.06); z-index:50}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700}
+    .logo{width:36px; height:36px; border-radius:10px; background:radial-gradient(60% 70% at 30% 30%, #6ea8ff, #3a68ff 60%, #203b86 100%); box-shadow:var(--shadow)}
+    .menu{display:flex; align-items:center; gap:18px}
+    .menu a{opacity:.9; font-weight:600}
+    .cta{display:inline-flex; align-items:center; gap:10px; background:var(--accent); color:white; padding:10px 14px; border-radius:999px; font-weight:700; box-shadow:var(--shadow)}
+
+    .hero{padding:60px 0 40px}
+    .split{display:grid; grid-template-columns:1.2fr .8fr; gap:28px}
+    .card{background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .hero .card{padding:28px}
+    h1{font-size:40px; line-height:1.1; margin:0 0 12px}
+    p.lead{font-size:18px; color:var(--muted); margin:0 0 18px}
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin:6px 0 16px}
+    .badge{background:rgba(255,255,255,.06); padding:8px 12px; border-radius:999px; font-size:12px; border:1px solid rgba(255,255,255,.08)}
+    .search{display:flex; gap:8px; margin-top:8px}
+    .search input{flex:1; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.08); background:#0f1424; color:var(--text)}
+    .btn{cursor:pointer; border:0; padding:12px 14px; border-radius:12px; font-weight:700}
+    .btn-accent{background:var(--accent); color:#fff}
+    .btn-ghost{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.12)}
+    .hero-media{display:grid; place-items:center}
+    .mockup{width:100%; aspect-ratio:4/3; border-radius:20px; background:linear-gradient(145deg, #1a2442, #0f172a); border:1px solid rgba(255,255,255,.06); display:grid; place-items:center; font-weight:800; letter-spacing:.08em}
+
+    section{padding:34px 0}
+    .section-title{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px}
+    h2{margin:0; font-size:26px}
+    .grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+    .product{display:flex; flex-direction:column}
+    .product .img{aspect-ratio:1/1; border-radius:14px; background:#0f1424; border:1px solid rgba(255,255,255,.06); display:grid; place-items:center; font-weight:700}
+    .product h3{font-size:16px; margin:10px 0 6px}
+    .price{color:#d1ffdb; font-weight:800}
+    .row{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+
+    .testimonial{padding:16px}
+    .quote{color:var(--muted); font-style:italic}
+
+    .contact-card{display:grid; gap:12px; padding:20px}
+    label{font-size:13px; color:var(--muted)}
+    input, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.08); background:#0f1424; color:var(--text)}
+
+    footer{padding:24px 0; border-top:1px solid rgba(255,255,255,.06); color:var(--muted)}
+
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; font-weight:700}
+    .pill.whatsapp{background:var(--accent-2); color:#07210f}
+    .cart-btn{position:relative}
+    .cart-count{position:absolute; top:-6px; right:-6px; background:var(--danger); color:#fff; border-radius:999px; padding:2px 7px; font-size:12px; font-weight:800}
+
+    @media (max-width:900px){
+      .split{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .row{grid-template-columns:1fr}
+      .menu{display:none}
+      .menu.open{display:flex; position:absolute; top:60px; right:16px; background:var(--card); padding:12px; border-radius:14px; border:1px solid rgba(255,255,255,.08)}
+    }
+  </style>
 </head>
 <body>
- <button class="subscribe-button">SUBSCRIBLE</button>
- <button class="join-button">JOIN</button>
- <button class="tweet-button">TWEET</button>
- </body>
+  <!-- ======= Header / Navbar ======= -->
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand">
+        <span class="logo" aria-hidden="true"></span>
+        <span>My Shop</span>
+      </a>
+      <nav class="menu" id="menu">
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div style="display:flex; align-items:center; gap:10px">
+        <button class="btn btn-ghost" id="menu-toggle" aria-label="Toggle menu">☰</button>
+        <a class="cta cart-btn" href="#cart" id="cart-btn">🛒 <span>Cart</span><span class="cart-count" id="cart-count">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======= Hero ======= -->
+  <section class="hero">
+    <div class="container split">
+      <div class="card">
+        <h1>Quality products. Fair prices. Fast delivery.</h1>
+        <p class="lead">Welcome to <strong>My Shop</strong>. We offer hand‑picked items you’ll love — with nationwide delivery across Nigeria.</p>
+        <div class="badges">
+          <span class="badge">🇳🇬 Pay on Delivery</span>
+          <span class="badge">✅ 7‑Day Return</span>
+          <span class="badge">🚚 Same‑Day (City)</span>
+        </div>
+        <div class="search">
+          <input id="search" type="search" placeholder="Search products…" />
+          <button class="btn btn-accent" onclick="alert('Search coming soon')">Search</button>
+        </div>
+        <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap">
+          <a class="pill whatsapp" href="https://wa.me/2347064899989" target="_blank" rel="noopener">WhatsApp Order</a>
+          <a class="pill" style="background:rgba(255,255,255,.08)" href="#products">Shop Now →</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="mockup">YOUR PRODUCT HERO IMAGE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Products ======= -->
+  <section id="products">
+    <div class="container">
+      <div class="section-title">
+        <h2>Featured Products</h2>
+        <a href="#" class="btn btn-ghost">View all</a>
+      </div>
+      <div class="grid" id="product-grid">
+        <!-- Repeat product cards -->
+        <article class="card product" data-name="Wireless Earbuds" data-price="15000">
+          <div class="img">Image</div>
+          <h3>Wireless Earbuds</h3>
+          <span class="price">₦15,000</span>
+          <button class="btn btn-accent" onclick="addToCart('Wireless Earbuds',15000)">Add to Cart</button>
+        </article>
+        <article class="card product" data-name="Smart Watch" data-price="32000">
+          <div class="img">Image</div>
+          <h3>Smart Watch</h3>
+          <span class="price">₦32,000</span>
+          <button class="btn btn-accent" onclick="addToCart('Smart Watch',32000)">Add to Cart</button>
+        </article>
+        <article class="card product" data-name="Bluetooth Speaker" data-price="22000">
+          <div class="img">Image</div>
+          <h3>Bluetooth Speaker</h3>
+          <span class="price">₦22,000</span>
+          <button class="btn btn-accent" onclick="addToCart('Bluetooth Speaker',22000)">Add to Cart</button>
+        </article>
+        <article class="card product" data-name="Power Bank 20,000mAh" data-price="18500">
+          <div class="img">Image</div>
+          <h3>Power Bank 20,000mAh</h3>
+          <span class="price">₦18,500</span>
+          <button class="btn btn-accent" onclick="addToCart('Power Bank 20,000mAh',18500)">Add to Cart</button>
+        </article>
+    
+    <article class="card product" data-name="Wireless Earbuds" data-price="15000">
+          <div class="img">Image</div>
+          <h3>Wireless Earbuds</h3>
+          <span class="price">₦15,000</span>
+          <button class="btn btn-accent" onclick="addToCart('Wireless Earbuds',15000)">Add to Cart</button>
+        </article>
+        <article class="card product" data-name="Smart Watch" data-price="32000">
+          <div class="img">Image</div>
+          <h3>Smart Watch</h3>
+          <span class="price">₦32,000</span>
+          <button class="btn btn-accent" onclick="addToCart('Smart Watch',32000)">Add to Cart</button>
+        </article>
+        <article class="card product" data-name="Bluetooth Speaker" data-price="22000">
+          <div class="img">Image</div>
+          <h3>Bluetooth Speaker</h3>
+          <span class="price">₦22,000</span>
+          <button class="btn btn-accent" onclick="addToCart('Bluetooth Speaker',22000)">Add to Cart</button>
+        </article>
+        <article class="card product" data-name="Power Bank 20,000mAh" data-price="18500">
+          <div class="img">Image</div>
+          <h3>Power Bank 20,000mAh</h3>
+          <span class="price">₦18,500</span>
+          <button class="btn btn-accent" onclick="addToCart('Power Bank 20,000mAh',18500)">Add to Cart</button>
+        </article>
+
+      <article class="card product" data-name="Wireless Earbuds" data-price="15000">
+          <div class="img">Image</div>
+          <h3>Wireless Earbuds</h3>
+          <span class="price">₦15,000</span>
+          <button class="btn btn-accent" onclick="addToCart('Wireless Earbuds',15000)">Add to Cart</button>
+        </article>
+        <article class="card product" data-name="Smart Watch" data-price="32000">
+          <div class="img">Image</div>
+          <h3>Smart Watch</h3>
+          <span class="price">₦32,000</span>
+          <button class="btn btn-accent" onclick="addToCart('Smart Watch',32000)">Add to Cart</button>
+        </article>
+        <article class="card product" data-name="Bluetooth Speaker" data-price="22000">
+          <div class="img">Image</div>
+          <h3>Bluetooth Speaker</h3>
+          <span class="price">₦22,000</span>
+          <button class="btn btn-accent" onclick="addToCart('Bluetooth Speaker',22000)">Add to Cart</button>
+        </article>
+        <article class="card product" data-name="Power Bank 20,000mAh" data-price="18500">
+          <div class="img">Image</div>
+          <h3>Power Bank 20,000mAh</h3>
+          <span class="price">₦18,500</span>
+          <button class="btn btn-accent" onclick="addToCart('Power Bank 20,000mAh',18500)">Add to Cart</button>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= About ======= -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title"><h2>About Us</h2></div>
+      <div class="row">
+        <article class="card" style="padding:20px">
+          <h3>Who we are</h3>
+          <p class="lead">We’re a small team based in Nigeria, focused on delivering quality gadgets and accessories with friendly service.</p>
+        </article>
+        <article class="card" style="padding:20px">
+          <h3>Why shop with us</h3>
+          <ul>
+            <li>Genuine products with warranty</li>
+            <li>Pay on delivery in select cities</li>
+            <li>Fast nationwide shipping</li>
+          </ul>
+        </article>
+        <article class="card" style="padding:20px">
+          <h3>Store hours</h3>
+          <p>Mon–Sat: 9:00 – 18:00<br/>Sun: 12:00 – 16:00</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Testimonials ======= -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-title"><h2>Customer Reviews</h2></div>
+      <div class="grid">
+        <article class="card testimonial">
+          <h3>Tochukwu</h3>
+          <p class="quote">“Delivery was same day in Lagos. The earbuds are superb!”</p>
+        </article>
+        <article class="card testimonial">
+          <h3>James</h3>
+          <p class="quote">“Great prices and excellent communication on WhatsApp.”</p>
+        </article>
+        <article class="card testimonial">
+          <h3>Emerie</h3>
+          <p class="quote">“Exactly as described. Will buy again.”</p>
+        </article>
+        <article class="card testimonial">
+          <h3>Emeka</h3>
+          <p class="quote">“Power bank lasts forever. Highly recommend.”</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Contact ======= -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title"><h2>Contact Us</h2></div>
+      <div class="card contact-card">
+        <form onsubmit="event.preventDefault(); alert('Message sent! We will reply shortly.'); this.reset();">
+          <div>
+            <label for="name">Full Name</label>
+            <input id="name" required placeholder="Your name" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" required placeholder="you@example.com" />
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" required placeholder="How can we help?"></textarea>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap">
+            <button class="btn btn-accent" type="submit">Send Message</button>
+            <a class="pill whatsapp" href="https://wa.me/07064899989?text=Hi%20My%20Shop" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap">
+      <span>© <span id="year"></span> My Shop. All rights reserved.</span>
+      <span>Address: 123 Market Road, Lagos • 07064899989</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('menu').classList.toggle('open');
+    });
+
+    // Simple cart demo (front-end only)
+    const cart = [];
+    const cartCount = document.getElementById('cart-count');
+    function addToCart(name, price){
+      cart.push({name, price});
+      cartCount.textContent = cart.length;
+      alert(`${name} added to cart (₦${price.toLocaleString()}).`);
+    }
+    window.addToCart = addToCart;
+
+    // Search filter
+    const searchInput = document.getElementById('search');
+    const productCards = Array.from(document.querySelectorAll('.product'));
+    searchInput.addEventListener('input', e => {
+      const q = e.target.value.toLowerCase();
+      productCards.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        card.style.display = name.includes(q) ? 'flex' : 'none';
+      });
+    });
+
+    // Current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
