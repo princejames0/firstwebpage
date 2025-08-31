@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="author" content="James"/>
   <title>My Shop</title>
   <meta name="description" content="Affordable quality products from My Shop."/>
   <link rel="icon" href="img/shopping mall logo.jpg" type="Image/shopping"/>
+  <link rel="stylesheet" href="shop.css">
   <style>
     :root{
       --bg:#0b0f19; /* deep navy */
@@ -146,86 +147,61 @@
       </div>
       <div class="grid" id="product-grid">
         <!-- Repeat product cards -->
-        <article class="card product" data-name="Wireless Earbuds" data-price="15000">
-          <div class="img">Image</div>
+        <article class="card product" data-name="Wireless Earbuds" data-price="4500">
+          <div class="ear"><img src="img/ear bod.jpeg" alt="image/earpod"></div>
           <h3>Wireless Earbuds</h3>
-          <span class="price">₦15,000</span>
-          <button class="btn btn-accent" onclick="addToCart('Wireless Earbuds',15000)">Add to Cart</button>
+          <span class="price">₦4,500</span>
+          <button class="btn btn-accent" onclick="addToCart('Wireless Earpod',4500)">Add to Cart</button>
         </article>
         <article class="card product" data-name="Smart Watch" data-price="32000">
-          <div class="img">Image</div>
-          <h3>Smart Watch</h3>
-          <span class="price">₦32,000</span>
-          <button class="btn btn-accent" onclick="addToCart('Smart Watch',32000)">Add to Cart</button>
+          <div class="img"><img src="img/laptop.webp" alt="image/laptop"></div>
+          <h3>2025 Latest 15.6'' Laptop Windows 11, 16GB Ram 512gb Pcie Ssd, Intel</h3>
+          <span class="price">₦1,700,000</span>
+          <button class="btn btn-accent" onclick="addToCart('Laptop window 11, 16GB',1700000)">Add to Cart</button>
         </article>
         <article class="card product" data-name="Bluetooth Speaker" data-price="22000">
-          <div class="img">Image</div>
-          <h3>Bluetooth Speaker</h3>
-          <span class="price">₦22,000</span>
-          <button class="btn btn-accent" onclick="addToCart('Bluetooth Speaker',22000)">Add to Cart</button>
-        </article>
-        <article class="card product" data-name="Power Bank 20,000mAh" data-price="18500">
-          <div class="img">Image</div>
-          <h3>Power Bank 20,000mAh</h3>
-          <span class="price">₦18,500</span>
-          <button class="btn btn-accent" onclick="addToCart('Power Bank 20,000mAh',18500)">Add to Cart</button>
-        </article>
-    
-    <article class="card product" data-name="Wireless Earbuds" data-price="15000">
-          <div class="img">Image</div>
-          <h3>Wireless Earbuds</h3>
+          <div class="img"> <img src="img/head set.webp" alt="image/headset"></div>
+          <h3>Wireless Noise-Canceling Headphones with Rich Bass & Clear Calls - Comfort Fit.</h3>
           <span class="price">₦15,000</span>
-          <button class="btn btn-accent" onclick="addToCart('Wireless Earbuds',15000)">Add to Cart</button>
-        </article>
-        <article class="card product" data-name="Smart Watch" data-price="32000">
-          <div class="img">Image</div>
-          <h3>Smart Watch</h3>
-          <span class="price">₦32,000</span>
-          <button class="btn btn-accent" onclick="addToCart('Smart Watch',32000)">Add to Cart</button>
-        </article>
-        <article class="card product" data-name="Bluetooth Speaker" data-price="22000">
-          <div class="img">Image</div>
-          <h3>Bluetooth Speaker</h3>
-          <span class="price">₦22,000</span>
-          <button class="btn btn-accent" onclick="addToCart('Bluetooth Speaker',22000)">Add to Cart</button>
+          <button class="btn btn-accent" onclick="addToCart('HeadPhone',22000)">Add to Cart</button>
         </article>
         <article class="card product" data-name="Power Bank 20,000mAh" data-price="18500">
-          <div class="img">Image</div>
-          <h3>Power Bank 20,000mAh</h3>
-          <span class="price">₦18,500</span>
-          <button class="btn btn-accent" onclick="addToCart('Power Bank 20,000mAh',18500)">Add to Cart</button>
+          <div class="img"><img src="img/POWER BANK.jpeg" alt=""></div>
+          <h3>Power Bank 50,000mAh</h3>
+          <span class="price">₦100,500</span>
+          <button class="btn btn-accent" onclick="addToCart('Power Bank 50,000mAh',100500)">Add to Cart</button>
         </article>
-
-      <article class="card product" data-name="Wireless Earbuds" data-price="15000">
-          <div class="img">Image</div>
-          <h3>Wireless Earbuds</h3>
-          <span class="price">₦15,000</span>
-          <button class="btn btn-accent" onclick="addToCart('Wireless Earbuds',15000)">Add to Cart</button>
-        </article>
-        <article class="card product" data-name="Smart Watch" data-price="32000">
-          <div class="img">Image</div>
-          <h3>Smart Watch</h3>
-          <span class="price">₦32,000</span>
-          <button class="btn btn-accent" onclick="addToCart('Smart Watch',32000)">Add to Cart</button>
-        </article>
-        <article class="card product" data-name="Bluetooth Speaker" data-price="22000">
-          <div class="img">Image</div>
-          <h3>Bluetooth Speaker</h3>
-          <span class="price">₦22,000</span>
-          <button class="btn btn-accent" onclick="addToCart('Bluetooth Speaker',22000)">Add to Cart</button>
-        </article>
-        <article class="card product" data-name="Power Bank 20,000mAh" data-price="18500">
-          <div class="img">Image</div>
-          <h3>Power Bank 20,000mAh</h3>
-          <span class="price">₦18,500</span>
-          <button class="btn btn-accent" onclick="addToCart('Power Bank 20,000mAh',18500)">Add to Cart</button>
-        </article>
-
       </div>
-    </div>
+
+      <div>
+        <article class="card product" data-name="Wireless Earbuds" data-price="1.7,000,000">
+          <div class="img"><img src="img/iphone.webp" alt=""> </div>
+          <h3>iPhone 16</h3>
+          <span class="price">₦1.7,000,000</span>
+          <button class="btn btn-accent" onclick="addToCart('iPhone 16',1700000)">Add to Cart</button>
+        </article>
+        <article class="card product" data-name="Smart Watch" data-price="32000">
+          <div class="img"><img src="img/smart watch.webp" alt=""></div>
+          <h3>Smart Watch</h3>
+          <span class="price">₦32,000</span>
+          <button class="btn btn-accent" onclick="addToCart('Smart Watch',32000)">Add to Cart</button>
+        </article>
+        <article class="card product" data-name="Bluetooth Speaker" data-price="22000">
+          <div class="img"><img src="img/head set.webp" alt=""></div>
+          <h3>Bluetooth Speaker</h3>
+          <span class="price">₦22,000</span>
+          <button class="btn btn-accent" onclick="addToCart('Bluetooth Speaker',22000)">Add to Cart</button>
+        </article>
+        <article class="card product" data-name="Power Bank 20,000mAh" data-price="18500">
+          <div class="img"><img src="img/POWER BANK.jpeg" alt=""></div>
+          <h3>Power Bank 20,000mAh</h3>
+          <span class="price">₦18,500</span>
+          <button class="btn btn-accent" onclick="addToCart('Power Bank 20,000mAh',18500)">Add to Cart</button>
+        </article>
+      </div>
   </section>
 
-  <!-- ======= About ======= -->
+  <!-- ======= About =========== -->
   <section id="about">
     <div class="container">
       <div class="section-title"><h2>About Us</h2></div>
